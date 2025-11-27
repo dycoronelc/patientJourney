@@ -1,0 +1,29 @@
+{
+  "name": "patient-journey-predictor",
+  "version": "1.0.0",
+  "description": "Plataforma de predicción de recursos médicos basada en interacciones de pacientes",
+  "main": "server/index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run backend\" \"npm run client\"",
+    "backend": "cd backend && uvicorn main:app --reload --host 0.0.0.0 --port 8000",
+    "client": "cd client && npm start",
+    "build": "cd client && npm run build",
+    "install-all": "npm install && cd backend && pip install -r requirements.txt && cd ../client && npm install",
+    "test": "cd backend && pytest && cd ../client && npm test",
+    "lint": "cd backend && flake8 . && cd ../client && npm run lint"
+  },
+  "keywords": [
+    "healthcare",
+    "predictive-analytics",
+    "resource-planning",
+    "patient-journey",
+    "medical-systems"
+  ],
+  "author": "Tu Nombre",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "eslint": "^8.55.0",
+    "jest": "^29.7.0"
+  }
+}

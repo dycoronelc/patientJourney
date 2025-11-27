@@ -1,0 +1,224 @@
+[
+  {
+    "id": "flow-cardiology-standard",
+    "name": "Flujo Estándar de Cardiología",
+    "description": "Flujo típico para evaluación cardiológica completa",
+    "specialty": "Cardiología",
+    "steps": [
+      {
+        "id": "step-1",
+        "name": "Consulta General",
+        "type": "consultation",
+        "cost": 35.00,
+        "duration": 20,
+        "order": 1,
+        "nextSteps": ["step-2", "step-3"]
+      },
+      {
+        "id": "step-2",
+        "name": "Órdenes de Laboratorio",
+        "type": "laboratory",
+        "tests": ["Perfil Lipídico", "Glucosa en Ayunas"],
+        "cost": 37.50,
+        "duration": 15,
+        "order": 2,
+        "nextSteps": ["step-4"]
+      },
+      {
+        "id": "step-3",
+        "name": "Órdenes de Imágenes",
+        "type": "imaging",
+        "tests": ["Electrocardiograma", "Ecocardiograma"],
+        "cost": 155.00,
+        "duration": 55,
+        "order": 3,
+        "nextSteps": ["step-4"]
+      },
+      {
+        "id": "step-4",
+        "name": "Referencia a Cardiología",
+        "type": "referral",
+        "cost": 75.00,
+        "duration": 30,
+        "order": 4,
+        "nextSteps": ["step-5"]
+      },
+      {
+        "id": "step-5",
+        "name": "Alta del Paciente",
+        "type": "discharge",
+        "cost": 0.00,
+        "duration": 10,
+        "order": 5,
+        "nextSteps": []
+      }
+    ],
+    "totalCost": 302.50,
+    "totalDuration": 130,
+    "isActive": true
+  },
+  {
+    "id": "flow-endocrinology-standard",
+    "name": "Flujo Estándar de Endocrinología",
+    "description": "Flujo típico para evaluación endocrinológica",
+    "specialty": "Endocrinología",
+    "steps": [
+      {
+        "id": "step-1",
+        "name": "Consulta General",
+        "type": "consultation",
+        "cost": 35.00,
+        "duration": 20,
+        "order": 1,
+        "nextSteps": ["step-2"]
+      },
+      {
+        "id": "step-2",
+        "name": "Órdenes de Laboratorio",
+        "type": "laboratory",
+        "tests": ["TSH", "T3", "T4", "Glucosa", "HbA1c"],
+        "cost": 55.50,
+        "duration": 20,
+        "order": 2,
+        "nextSteps": ["step-3"]
+      },
+      {
+        "id": "step-3",
+        "name": "Consulta Endocrinología",
+        "type": "referral",
+        "cost": 70.00,
+        "duration": 25,
+        "order": 3,
+        "nextSteps": ["step-4"]
+      },
+      {
+        "id": "step-4",
+        "name": "Alta y Tratamiento",
+        "type": "discharge",
+        "cost": 0.00,
+        "duration": 10,
+        "order": 4,
+        "nextSteps": []
+      }
+    ],
+    "totalCost": 160.50,
+    "totalDuration": 75,
+    "isActive": true
+  },
+  {
+    "id": "flow-geriatrics-standard",
+    "name": "Flujo Estándar de Geriatría",
+    "description": "Flujo completo para evaluación geriátrica integral",
+    "specialty": "Geriatría",
+    "steps": [
+      {
+        "id": "step-1",
+        "name": "Consulta General",
+        "type": "consultation",
+        "cost": 35.00,
+        "duration": 20,
+        "order": 1,
+        "nextSteps": ["step-2", "step-3"]
+      },
+      {
+        "id": "step-2",
+        "name": "Perfil Metabólico Completo",
+        "type": "laboratory",
+        "tests": ["Hemograma", "Función Hepática", "Función Renal", "Perfil Lipídico"],
+        "cost": 65.00,
+        "duration": 25,
+        "order": 2,
+        "nextSteps": ["step-4"]
+      },
+      {
+        "id": "step-3",
+        "name": "Densitometría Ósea",
+        "type": "imaging",
+        "cost": 85.00,
+        "duration": 30,
+        "order": 3,
+        "nextSteps": ["step-4"]
+      },
+      {
+        "id": "step-4",
+        "name": "Evaluación Geriátrica",
+        "type": "consultation",
+        "cost": 45.00,
+        "duration": 45,
+        "order": 4,
+        "nextSteps": ["step-5"]
+      },
+      {
+        "id": "step-5",
+        "name": "Referencias Múltiples",
+        "type": "referral",
+        "specialists": ["Cardiología", "Endocrinología", "Fisioterapia"],
+        "cost": 195.00,
+        "duration": 60,
+        "order": 5,
+        "nextSteps": ["step-6"]
+      },
+      {
+        "id": "step-6",
+        "name": "Plan de Tratamiento y Alta",
+        "type": "discharge",
+        "cost": 0.00,
+        "duration": 15,
+        "order": 6,
+        "nextSteps": []
+      }
+    ],
+    "totalCost": 425.00,
+    "totalDuration": 195,
+    "isActive": true
+  },
+  {
+    "id": "flow-general-basic",
+    "name": "Flujo Básico de Medicina General",
+    "description": "Flujo simple para consulta general",
+    "specialty": "Medicina General",
+    "steps": [
+      {
+        "id": "step-1",
+        "name": "Consulta General",
+        "type": "consultation",
+        "cost": 35.00,
+        "duration": 20,
+        "order": 1,
+        "nextSteps": ["step-2"]
+      },
+      {
+        "id": "step-2",
+        "name": "Exámenes Básicos",
+        "type": "laboratory",
+        "tests": ["Hemograma", "Orina"],
+        "cost": 30.00,
+        "duration": 15,
+        "order": 2,
+        "nextSteps": ["step-3"]
+      },
+      {
+        "id": "step-3",
+        "name": "Alta con Tratamiento",
+        "type": "discharge",
+        "cost": 0.00,
+        "duration": 10,
+        "order": 3,
+        "nextSteps": []
+      }
+    ],
+    "totalCost": 65.00,
+    "totalDuration": 45,
+    "isActive": true
+  }
+]
+
+
+
+
+
+
+
+
+
+

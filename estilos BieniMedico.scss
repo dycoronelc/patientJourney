@@ -1,0 +1,166 @@
+.rdt_TableCol_Sortable > .form-control {
+  font-size: 1rem !important;
+  font-weight: 900 !important;
+  color: #3e4954;
+}
+#pagination-previous-page:not([disabled]),
+#pagination-next-page:not([disabled]) {
+  fill: #fff;
+  background: #0a6fb8;
+  border-radius: 0.2rem;
+  height: 25px;
+  margin-right: 0.4rem;
+  padding: initial;
+  width: 25px;
+}
+#pagination-first-page:not([disabled]),
+#pagination-last-page:not([disabled]) {
+  fill: #fff;
+  background: #293f76;
+  border-radius: 0.2rem;
+  height: 25px;
+  margin-right: 0.4rem;
+  padding: initial;
+  width: 25px;
+}
+
+.main-menu .navbar-header .navbar-brand .brand-logo img {
+  max-width: 80px !important;
+}
+.react-dataTable
+  .rdt_TableHead
+  .rdt_TableHeadRow
+  .rdt_TableCol
+  .rdt_TableCol_Sortable {
+  color: #6e6b7b;
+  font-weight: bold;
+  font-style: 0.857rem;
+  letter-spacing: 0px !important;
+  text-transform: uppercase;
+}
+
+[dir] .react-dataTable .rdt_TableHead .rdt_TableHeadRow .rdt_TableCol {
+  padding: 0.72rem 0.5rem !important;
+}
+/*
+    .horizontal-menu .header-navbar.navbar-brand-center .navbar-header .navbar-brand .brand-logo img {
+        max-width: 400px !important;
+    }
+    [dir=ltr] .horizontal-menu .header-navbar.navbar-brand-center .navbar-header {
+        left: calc(0% - 0px) !important;
+    }
+    */
+
+.dropdown-select {
+  /*container for custom dropdown arrow*/
+  -webkit-appearance: none;
+  -moz-appearance: window;
+  padding: 2px 50px 2px 2px;
+  border: none;
+  background-image: url('../images/icons/chevron-down.png');
+  background-repeat: no-repeat;
+  background-position: right center;
+  font-weight: 500;
+}
+.dropdown-select:focus {
+  outline: none;
+}
+.tooltip::after {
+  position: absolute;
+  left: -3px;
+  top: 38%;
+  content: '';
+  width: 9px;
+  height: 9px;
+  background: #7367f0;
+  transform: rotate(45deg);
+}
+
+.lk-media-device-select li > .lk-button {
+  font-size: 10px !important;
+}
+.lk-device-menu {
+  background-color: #fff !important;
+}
+
+.lk-button {
+  background-color: #fff !important;
+  color: gray !important;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  font-size: 0 !important; // Hide text inside the button
+  border: 0.5px solid lightgray !important;
+}
+.lk-button-menu {
+  background-color: #fff !important;
+  color: gray !important;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem !important;
+  font-weight: 500;
+  border: none;
+}
+.lk-disconnect-button {
+  background-color: #ea5455 !important;
+  color: #fff !important;
+  border-radius: 8px !important;
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem !important;
+  font-weight: 500;
+  border: none;
+  // Hide icon inside the disconnect button
+  svg,
+  i {
+    display: none !important;
+  }
+}
+.lk-button:hover,
+.lk-disconnect-button:hover {
+  background-color: darken(#e7e7e7, 10%) !important;
+  color: #fff;
+  cursor: pointer;
+}
+.lk-disconnect-button:hover {
+  background-color: darken(#ea5455, 10%) !important;
+  color: #fff;
+  cursor: pointer;
+}
+
+.lk-participant-placeholder {
+  background-color: #e6f5f5 !important;
+  border: 1px solid #55bcba !important;
+  padding: 0.5rem !important;
+  svg,
+  i {
+    color: #55bcba !important;
+    fill: #55bcba !important;
+    stroke: #55bcba !important;
+  }
+}
+
+.lk-participant-tile {
+  width: 100% !important;
+  max-height: 100% !important;
+}
+.lk-participant-media-video {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+
+.rhap_container {
+  box-shadow: none !important;
+}
+.rhap_main-controls-button {
+  width: 60px !important;
+  height: 60px !important;
+}
+.rhap_progress-bar-show-download {
+  background-color: #755aeea8 !important;
+}
+.rhap_progress-section {
+  // display: none !important;
+}
+.rhap_additional-controls {
+  visibility: hidden !important;
+}

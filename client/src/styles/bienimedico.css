@@ -1,0 +1,193 @@
+/* Estilos personalizados para coincidir con BieniMedico */
+
+/* Variables CSS para colores de BieniMedico */
+:root {
+  --bienimedico-primary: #7367f0;
+  --bienimedico-primary-dark: #5a52d5;
+  --bienimedico-secondary: #7367f0;
+  --bienimedico-success: #55bcba;
+  --bienimedico-error: #ea5455;
+  --bienimedico-text-primary: #3e4954;
+  --bienimedico-text-secondary: #6e6b7b;
+  --bienimedico-background: #f8f9fa;
+  --bienimedico-white: #ffffff;
+  --bienimedico-border: #e0e0e0;
+  --bienimedico-border-light: #f0f0f0;
+  --bienimedico-border-radius: 0.5rem;
+  --bienimedico-tooltip-bg: #7367f0;
+  --bienimedico-tooltip-arrow-color: #7367f0;
+  --bienimedico-tooltip-arrow-width: 0.8rem;
+  --bienimedico-tooltip-arrow-height: 0.4rem;
+  --bienimedico-tooltip-border-radius: 0.5rem;
+}
+
+/* Estilos globales */
+body {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  background-color: var(--bienimedico-background);
+  color: var(--bienimedico-text-primary);
+}
+
+/* Botones estilo BieniMedico */
+.bienimedico-button {
+  background-color: var(--bienimedico-primary) !important;
+  color: var(--bienimedico-white) !important;
+  border-radius: 4px !important;
+  font-weight: 500 !important;
+  text-transform: none !important;
+  box-shadow: none !important;
+  transition: all 0.3s ease !important;
+}
+
+.bienimedico-button:hover {
+  background-color: var(--bienimedico-primary-dark) !important;
+  box-shadow: 0 2px 8px rgba(10, 111, 184, 0.3) !important;
+}
+
+/* Cards estilo BieniMedico */
+.bienimedico-card {
+  border-radius: 8px !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+  border: 1px solid var(--bienimedico-border-light) !important;
+  transition: all 0.3s ease !important;
+}
+
+.bienimedico-card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Sidebar estilo BieniMedico */
+.bienimedico-sidebar {
+  background-color: var(--bienimedico-background) !important;
+  border-right: 1px solid var(--bienimedico-border) !important;
+}
+
+.bienimedico-sidebar-item {
+  border-radius: 8px !important;
+  margin: 4px 0 !important;
+  transition: all 0.3s ease !important;
+}
+
+.bienimedico-sidebar-item:hover {
+  background-color: rgba(10, 111, 184, 0.08) !important;
+}
+
+.bienimedico-sidebar-item.selected {
+  background-color: var(--bienimedico-primary) !important;
+  color: var(--bienimedico-white) !important;
+}
+
+/* Header estilo BieniMedico */
+.bienimedico-header {
+  background-color: var(--bienimedico-white) !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+  border-bottom: 1px solid var(--bienimedico-border) !important;
+}
+
+/* Indicadores de estado */
+.bienimedico-status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.bienimedico-status-online {
+  background-color: rgba(85, 188, 186, 0.1);
+  color: var(--bienimedico-success);
+}
+
+.bienimedico-status-active {
+  background-color: rgba(10, 111, 184, 0.1);
+  color: var(--bienimedico-primary);
+}
+
+/* Tipografía estilo BieniMedico */
+.bienimedico-title {
+  font-weight: 700 !important;
+  color: var(--bienimedico-text-primary) !important;
+}
+
+.bienimedico-subtitle {
+  font-weight: 500 !important;
+  color: var(--bienimedico-text-secondary) !important;
+}
+
+.bienimedico-text-uppercase {
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+}
+
+/* Animaciones suaves */
+.bienimedico-transition {
+  transition: all 0.3s ease !important;
+}
+
+/* Efectos hover */
+.bienimedico-hover-lift:hover {
+  transform: translateY(-2px) !important;
+}
+
+.bienimedico-hover-shadow:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .bienimedico-mobile-hidden {
+    display: none !important;
+  }
+}
+
+/* Estilos para scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bienimedico-border-light);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bienimedico-text-secondary);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--bienimedico-text-primary);
+}
+
+/* Estilos para focus */
+.bienimedico-focus:focus {
+  outline: 2px solid var(--bienimedico-primary) !important;
+  outline-offset: 2px !important;
+}
+
+/* Estilos para loading states */
+.bienimedico-loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Estilos para estados de error */
+.bienimedico-error {
+  color: var(--bienimedico-error) !important;
+  background-color: rgba(234, 84, 85, 0.1) !important;
+}
+
+/* Estilos para estados de éxito */
+.bienimedico-success {
+  color: var(--bienimedico-success) !important;
+  background-color: rgba(85, 188, 186, 0.1) !important;
+}
+
+
+

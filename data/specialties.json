@@ -1,0 +1,295 @@
+[
+  {
+    "id": "cardiology",
+    "name": "Cardiología",
+    "description": "Especialidad médica que se encarga del diagnóstico y tratamiento de las enfermedades del corazón y del sistema cardiovascular",
+    "commonTests": [
+      {
+        "id": "lipid-profile",
+        "name": "Perfil Lipídico",
+        "type": "laboratory",
+        "category": "Bioquímica",
+        "description": "Mide los niveles de colesterol LDL, HDL y triglicéridos en la sangre",
+        "averageDuration": 15,
+        "requiredEquipment": ["centrifuga", "analizador_bioquimico"],
+        "cost": 25.50,
+        "frequency": "routine"
+      },
+      {
+        "id": "ecg",
+        "name": "Electrocardiograma (ECG)",
+        "type": "diagnostic",
+        "category": "Cardiología",
+        "description": "Registra la actividad eléctrica del corazón para detectar ritmos anormales o daño",
+        "averageDuration": 10,
+        "requiredEquipment": ["electrocardiografo"],
+        "cost": 35.00,
+        "frequency": "routine"
+      },
+      {
+        "id": "echocardiogram",
+        "name": "Ecocardiograma",
+        "type": "imaging",
+        "category": "Cardiología",
+        "description": "Utiliza ultrasonido para crear imágenes del corazón en movimiento",
+        "averageDuration": 45,
+        "requiredEquipment": ["ecografo", "transductor_cardiaco"],
+        "cost": 120.00,
+        "frequency": "as_needed"
+      }
+    ],
+    "typicalMedications": [
+      {
+        "id": "atorvastatin",
+        "name": "Atorvastatina",
+        "genericName": "Atorvastatin",
+        "category": "Estatinas",
+        "dosage": "10-80 mg",
+        "frequency": "Una vez al día",
+        "duration": "Indefinido",
+        "cost": 15.75,
+        "availability": "common"
+      },
+      {
+        "id": "metoprolol",
+        "name": "Metoprolol",
+        "genericName": "Metoprolol",
+        "category": "Betabloqueantes",
+        "dosage": "25-200 mg",
+        "frequency": "Una o dos veces al día",
+        "duration": "Según indicación médica",
+        "cost": 8.50,
+        "availability": "common"
+      }
+    ],
+    "icd10Codes": [
+      "I10", "I11", "I12", "I13", "I20", "I21", "I25", "I50"
+    ],
+    "cptCodes": [
+      "93000", "93010", "93306", "93307", "93308"
+    ],
+    "averageConsultationTime": 30,
+    "resourceRequirements": [
+      {
+        "resourceType": "doctor",
+        "quantity": 1,
+        "duration": 30,
+        "priority": "high"
+      },
+      {
+        "resourceType": "nurse",
+        "quantity": 1,
+        "duration": 15,
+        "priority": "medium"
+      }
+    ],
+    "patientFlow": [
+      {
+        "id": "initial-consultation",
+        "name": "Consulta Inicial",
+        "description": "Evaluación inicial del paciente",
+        "order": 1,
+        "requiredResources": [
+          {
+            "resourceType": "doctor",
+            "quantity": 1,
+            "duration": 30,
+            "priority": "high"
+          }
+        ],
+        "averageDuration": 30,
+        "nextSteps": ["tests-request", "medication-prescription"]
+      },
+      {
+        "id": "tests-request",
+        "name": "Solicitud de Estudios",
+        "description": "Solicitud de estudios complementarios",
+        "order": 2,
+        "requiredResources": [
+          {
+            "resourceType": "doctor",
+            "quantity": 1,
+            "duration": 10,
+            "priority": "medium"
+          }
+        ],
+        "averageDuration": 10,
+        "nextSteps": ["follow-up-consultation"]
+      }
+    ]
+  },
+  {
+    "id": "endocrinology",
+    "name": "Endocrinología",
+    "description": "Especialidad médica que se encarga del diagnóstico y tratamiento de las enfermedades relacionadas con las hormonas",
+    "commonTests": [
+      {
+        "id": "tsh-test",
+        "name": "TSH, T3, T4",
+        "type": "laboratory",
+        "category": "Hormonas",
+        "description": "Para evaluar la función tiroidea",
+        "averageDuration": 20,
+        "requiredEquipment": ["centrifuga", "analizador_hormonal"],
+        "cost": 45.00,
+        "frequency": "routine"
+      },
+      {
+        "id": "glucose-test",
+        "name": "Glucosa en Ayunas y Hemoglobina A1c",
+        "type": "laboratory",
+        "category": "Bioquímica",
+        "description": "Para el manejo de la diabetes",
+        "averageDuration": 15,
+        "requiredEquipment": ["analizador_bioquimico"],
+        "cost": 20.00,
+        "frequency": "routine"
+      }
+    ],
+    "typicalMedications": [
+      {
+        "id": "metformin",
+        "name": "Metformina",
+        "genericName": "Metformin",
+        "category": "Antidiabéticos",
+        "dosage": "500-2000 mg",
+        "frequency": "Una o dos veces al día",
+        "duration": "Indefinido",
+        "cost": 12.30,
+        "availability": "common"
+      },
+      {
+        "id": "levothyroxine",
+        "name": "Levotiroxina",
+        "genericName": "Levothyroxine",
+        "category": "Hormonas Tiroideas",
+        "dosage": "25-200 mcg",
+        "frequency": "Una vez al día",
+        "duration": "Indefinido",
+        "cost": 18.75,
+        "availability": "common"
+      }
+    ],
+    "icd10Codes": [
+      "E11", "E03", "E05", "E07", "E25"
+    ],
+    "cptCodes": [
+      "99213", "99214", "99215"
+    ],
+    "averageConsultationTime": 25,
+    "resourceRequirements": [
+      {
+        "resourceType": "doctor",
+        "quantity": 1,
+        "duration": 25,
+        "priority": "high"
+      }
+    ],
+    "patientFlow": [
+      {
+        "id": "endocrinology-consultation",
+        "name": "Consulta Endocrinológica",
+        "description": "Evaluación endocrinológica completa",
+        "order": 1,
+        "requiredResources": [
+          {
+            "resourceType": "doctor",
+            "quantity": 1,
+            "duration": 25,
+            "priority": "high"
+          }
+        ],
+        "averageDuration": 25,
+        "nextSteps": ["hormonal-tests", "medication-adjustment"]
+      }
+    ]
+  },
+  {
+    "id": "geriatrics",
+    "name": "Geriatría",
+    "description": "Especialidad médica que se encarga del cuidado de la salud de las personas mayores",
+    "commonTests": [
+      {
+        "id": "metabolic-panel",
+        "name": "Perfil Metabólico Completo",
+        "type": "laboratory",
+        "category": "Bioquímica",
+        "description": "Incluye glucosa, electrolitos, función renal, y pruebas de función hepática",
+        "averageDuration": 25,
+        "requiredEquipment": ["centrifuga", "analizador_bioquimico"],
+        "cost": 35.00,
+        "frequency": "routine"
+      },
+      {
+        "id": "bone-densitometry",
+        "name": "Densitometría Ósea",
+        "type": "imaging",
+        "category": "Radiología",
+        "description": "Para evaluar la salud ósea y el riesgo de osteoporosis",
+        "averageDuration": 30,
+        "requiredEquipment": ["densitometro_oseo"],
+        "cost": 85.00,
+        "frequency": "as_needed"
+      }
+    ],
+    "typicalMedications": [
+      {
+        "id": "alendronate",
+        "name": "Alendronato",
+        "genericName": "Alendronate",
+        "category": "Bifosfonatos",
+        "dosage": "70 mg",
+        "frequency": "Una vez por semana",
+        "duration": "Según indicación médica",
+        "cost": 25.50,
+        "availability": "common"
+      }
+    ],
+    "icd10Codes": [
+      "I10", "E11.9", "M81.0", "R54", "G30.9"
+    ],
+    "cptCodes": [
+      "99213", "99337", "99309", "99397"
+    ],
+    "averageConsultationTime": 45,
+    "resourceRequirements": [
+      {
+        "resourceType": "doctor",
+        "quantity": 1,
+        "duration": 45,
+        "priority": "high"
+      },
+      {
+        "resourceType": "nurse",
+        "quantity": 1,
+        "duration": 30,
+        "priority": "medium"
+      }
+    ],
+    "patientFlow": [
+      {
+        "id": "geriatric-assessment",
+        "name": "Evaluación Geriátrica",
+        "description": "Evaluación completa del paciente geriátrico",
+        "order": 1,
+        "requiredResources": [
+          {
+            "resourceType": "doctor",
+            "quantity": 1,
+            "duration": 45,
+            "priority": "high"
+          },
+          {
+            "resourceType": "nurse",
+            "quantity": 1,
+            "duration": 30,
+            "priority": "medium"
+          }
+        ],
+        "averageDuration": 45,
+        "nextSteps": ["comprehensive-tests", "specialist-referrals"]
+      }
+    ]
+  }
+]
+

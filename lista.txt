@@ -1,0 +1,17 @@
+C:\react\patient_journey\.git
+C:\react\patient_journey\backend
+C:\react\patient_journey\client
+C:\react\patient_journey\data
+C:\react\patient_journey\docs
+C:\react\patient_journey\shared
+C:\react\patient_journey\backend\app
+C:\react\patient_journey\backend\database
+C:\react\patient_journey\backend\docs
+C:\react\patient_journey\backend\src
+C:\react\patient_journey\backend\venv
+C:\react\patient_journey\backend\__pycache__
+C:\react\patient_journey\client\build
+C:\react\patient_journey\client\node_modules
+C:\react\patient_journey\client\public
+C:\react\patient_journey\client\src
+C:\react\patient_journey\shared\types

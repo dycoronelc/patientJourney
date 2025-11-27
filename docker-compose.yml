@@ -1,0 +1,140 @@
+version: '3.8'
+
+services:
+  # Base de datos MySQL
+  mysql:
+    image: mysql:8.0
+    container_name: patient_journey_db
+    environment:
+      MYSQL_DATABASE: patient_journey
+      MYSQL_USER: patient_user
+      MYSQL_PASSWORD: patient_password
+      MYSQL_ROOT_PASSWORD: root_password
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./backend/database/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - patient_journey_network
+    command: --default-authentication-plugin=mysql_native_password
+
+  # Redis para caché y colas
+  redis:
+    image: redis:7-alpine
+    container_name: patient_journey_redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - patient_journey_network
+
+  # Backend API (Python FastAPI)
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: patient_journey_backend
+    environment:
+      PYTHONPATH: /app
+      DATABASE_URL: mysql+pymysql://patient_user:patient_password@mysql:3306/patient_journey
+      REDIS_URL: redis://redis:6379/0
+      SECRET_KEY: your_secret_key_here
+      JWT_SECRET_KEY: your_jwt_secret_key_here
+      CORS_ORIGINS: '["http://localhost:3000","http://127.0.0.1:3000"]'
+      DEBUG: "true"
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+    depends_on:
+      - mysql
+      - redis
+    networks:
+      - patient_journey_network
+    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+
+  # Frontend React
+  frontend:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    container_name: patient_journey_frontend
+    environment:
+      REACT_APP_API_URL: http://localhost:8000
+      REACT_APP_WS_URL: ws://localhost:8000
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./client:/app
+      - /app/node_modules
+    depends_on:
+      - backend
+    networks:
+      - patient_journey_network
+    command: npm start
+
+  # Servicio de analítica (integrado en el backend)
+  # El servicio de analítica ahora está integrado en el backend principal
+
+  # Nginx para load balancing (producción)
+  nginx:
+    image: nginx:alpine
+    container_name: patient_journey_nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/ssl:/etc/nginx/ssl
+    depends_on:
+      - frontend
+      - backend
+    networks:
+      - patient_journey_network
+    profiles:
+      - production
+
+  # Prometheus para monitoreo
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: patient_journey_prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus_data:/prometheus
+    networks:
+      - patient_journey_network
+    profiles:
+      - monitoring
+
+  # Grafana para dashboards
+  grafana:
+    image: grafana/grafana:latest
+    container_name: patient_journey_grafana
+    ports:
+      - "3001:3000"
+    environment:
+      GF_SECURITY_ADMIN_PASSWORD: admin
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./monitoring/grafana/dashboards:/etc/grafana/provisioning/dashboards
+      - ./monitoring/grafana/datasources:/etc/grafana/provisioning/datasources
+    depends_on:
+      - prometheus
+    networks:
+      - patient_journey_network
+    profiles:
+      - monitoring
+
+volumes:
+  mysql_data:
+  redis_data:
+  prometheus_data:
+  grafana_data:
+
+networks:
+  patient_journey_network:
+    driver: bridge

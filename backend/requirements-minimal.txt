@@ -1,0 +1,11 @@
+# Dependencias mínimas para funcionar (sin compilación)
+fastapi
+uvicorn[standard]
+sqlalchemy
+pymysql
+python-dotenv
+redis
+python-multipart
+
+
+
