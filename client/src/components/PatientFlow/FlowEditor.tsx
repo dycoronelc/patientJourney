@@ -1,6 +1,7 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { medicalFlowService, Flow, Specialty, FlowNode } from '../../services/medicalFlowService';
 import FlowRenderer from './FlowRenderer';
+import { medicalFlowService as medFlowService } from '../../services/medicalFlowService';
 import { formatCurrency, formatDuration } from '../../utils/numberFormatter';
 import ReactFlow, {
   Node,
@@ -88,6 +89,7 @@ const FlowEditor: React.FC<FlowEditorProps> = ({ flowId, onSave, readOnly = fals
   const [flowDescription, setFlowDescription] = useState('');
   const [availableSteps, setAvailableSteps] = useState<AvailableStep[]>([]);
   const [loadingSteps, setLoadingSteps] = useState(true);
+  const [currentFlow, setCurrentFlow] = useState<Flow | null>(null);
 
   // Cargar pasos disponibles desde la API
   useEffect(() => {
@@ -228,12 +230,28 @@ const FlowEditor: React.FC<FlowEditorProps> = ({ flowId, onSave, readOnly = fals
         showEndNode: true,
       });
       
+      // Guardar el flujo actual para referencia
+      setCurrentFlow(flow);
+      
       // Generar nodos y edges usando el renderizador universal
       if (flow.nodes && flow.nodes.length > 0) {
         const loadedNodes = flowRenderer.generateNodes(flow);
         const loadedEdges = flowRenderer.generateEdges(flow);
         
-        setNodes(loadedNodes);
+        // Habilitar arrastre de nodos en el editor y preservar datos originales
+        const editableNodes = loadedNodes.map((node, index) => {
+          const originalNode = flow.nodes[index];
+          return {
+            ...node,
+            draggable: !readOnly, // Permitir arrastre solo si no es solo lectura
+            data: {
+              ...node.data,
+              originalNode: originalNode, // Guardar referencia al nodo original
+            },
+          };
+        });
+        
+        setNodes(editableNodes);
         setEdges(loadedEdges);
       }
       
@@ -728,27 +746,41 @@ const FlowEditor: React.FC<FlowEditorProps> = ({ flowId, onSave, readOnly = fals
     toast.success('Nodo eliminado');
   };
 
-  const saveFlow = () => {
+  const saveFlow = async () => {
     if (!flowName) {
       toast.error('Ingresa un nombre para el flujo');
       return;
     }
 
     // Calcular costo y duración totales
-    const estimatedCost = nodes.reduce((sum, n) => sum + (n.data.templateData?.defaultCost || 0), 0);
-    const estimatedDuration = nodes.reduce((sum, n) => sum + (n.data.templateData?.defaultDuration || 0), 0);
+    const estimatedCost = nodes.reduce((sum, n) => {
+      const originalNode = n.data?.originalNode || currentFlow?.nodes?.find((fn: any) => fn.id === n.id);
+      return sum + (n.data.templateData?.defaultCost || originalNode?.costAvg || 0);
+    }, 0);
+    
+    const estimatedDuration = nodes.reduce((sum, n) => {
+      const originalNode = n.data?.originalNode || currentFlow?.nodes?.find((fn: any) => fn.id === n.id);
+      return sum + (n.data.templateData?.defaultDuration || originalNode?.durationMinutes || 0);
+    }, 0);
 
     const flowData = {
       name: flowName,
       description: flowDescription,
-      nodes: nodes.map(n => ({
-        id: n.id,
-        type: n.data.templateData?.type,
-        label: n.data.templateData?.label,
-        cost: n.data.templateData?.defaultCost,
-        duration: n.data.templateData?.defaultDuration,
-        position: n.position,
-      })),
+      nodes: nodes.map(n => {
+        // Obtener datos del nodo original si existe
+        const originalNode = n.data?.originalNode || currentFlow?.nodes?.find((fn: any) => fn.id === n.id);
+        
+        return {
+          id: n.id,
+          type: n.data.templateData?.type || originalNode?.stepTypeId,
+          label: n.data.templateData?.label || originalNode?.label || n.data?.label,
+          cost: n.data.templateData?.defaultCost || originalNode?.costAvg || 0,
+          duration: n.data.templateData?.defaultDuration || originalNode?.durationMinutes || 0,
+          position: n.position, // Guardar la posición actual (puede haber sido movida)
+          stepTypeId: originalNode?.stepTypeId,
+          description: originalNode?.description || n.data?.label,
+        };
+      }),
       edges: edges.map(e => ({
         id: e.id,
         source: e.source,
@@ -759,6 +791,23 @@ const FlowEditor: React.FC<FlowEditorProps> = ({ flowId, onSave, readOnly = fals
       estimatedDuration: estimatedDuration,
     };
 
+    // Si hay un flowId y el flujo es del sistema de flows (medical flows), usar medicalFlowService
+    if (flowId && flowId.startsWith('flow-')) {
+      try {
+        await medicalFlowService.updateFlow(flowId, flowData);
+        toast.success('Flujo actualizado exitosamente');
+        if (onSave) {
+          onSave(flowData);
+        }
+        return;
+      } catch (error) {
+        console.error('Error actualizando flujo:', error);
+        toast.error('Error al actualizar el flujo');
+        return;
+      }
+    }
+
+    // Para otros flujos, usar el callback onSave
     if (onSave) {
       onSave(flowData);
     }

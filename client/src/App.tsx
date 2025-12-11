@@ -15,6 +15,7 @@ import Visualization from './pages/Visualization/Visualization';
 import Integration from './pages/Integration/Integration';
 import Login from './pages/Auth/Login';
 import PatientFlowPage from './pages/PatientFlow/PatientFlowPage';
+import PECPage from './pages/PEC/PECPage';
 
 // Hooks
 import { useAuth } from './hooks/useAuth';
@@ -250,6 +251,7 @@ function App() {
                       <Route path="/" element={<Navigate to="/dashboard" replace />} />
                       <Route path="/dashboard" element={<Dashboard />} />
                       <Route path="/patient-flow" element={<PatientFlowPage />} />
+                      <Route path="/pec" element={<PECPage />} />
                       <Route path="/configuration" element={<Configuration />} />
                       <Route path="/analytics" element={<Analytics />} />
                       <Route path="/bienimed-analytics" element={<BienimedAnalytics />} />

@@ -1,0 +1,98 @@
+Metodología
+
+Este proyecto debe trabajar con pacientes incidentes y pacientes prevalentes. Para lo mismo se ha incorporado el siguiente flujograma de atención:
+
+Flujograma:
+REGES -> Atención al asegurado -> Laboratorio -> Enfermería -> Referencia a: Trabajo social y/o Salud Mental y/o Nutrición -> Atención por el médico -> Farmacia -> Programar siguiente cita en REGES
+
+Pasos a seguir en la primera cita del programa de Enfermedades crónicas (pacientes incidentes o nuevos)
+1. Selección de pacientes según listado de la base de datos con los valores de laboratorio fuera de rango, por orden de prioridad.
+2. Se realizará llamada por un personal médico junto con un personal de reges para explicarle al paciente en que consiste el programa, y si éste acepta participar, se le agendará una cita. Al momento de la llamada se confirmarán todos los datos del paciente (nombre completo, cédula, edad, fecha de nacimiento, numero de celular propio y uno alterno)
+3. Atención médica: 15 pacientes por día (5 días a la semana).
+4. El personal médico se encargará de llenar las solicitudes de laboratorio de los pacientes agendados y proporcionarle al laboratorio la lista semanal de los pacientes agendados junto con las solicitudes de laboratorio firmadas y selladas.
+5. Los pacientes serán citados a las 8 am del día que le corresponde su cita y pasarán primeramente por el laboratorio donde se le tomará muestra de sangre para los siguientes laboratorios: BHC, glicemia, HbA1c, creatinina con TFG, nitrógeno de urea, ácido úrico y urinálisis con relación albumina/creatinina en orina.
+6. Atención por personal de Enfermería del programa de Enfermedades Crónicas, donde se le hará una evaluación primaria de su historia clínica, signos vitales, peso y talla. Esta atención deberá ir acompañada de un proceso de educación personalizada con miras a mejorar la adherencia a su tratamiento.
+7. Manejo multidisciplinario: la enfermera del programa referirá al paciente a los otros departamentos de interés, según la necesidad actual del paciente, para que la evaluación sea integral (trabajo social, salud mental o nutrición), siempre manteniendo la atención el mismo día de la evaluación.
+8. Una vez esten listos los resultados de laboratorios, el paciente asistirá a la evaluación con el médico de atención.
+9. Posteriormente, será enviado a farmacia donde se le proporcionará los medicamentos indicados por el médico.
+10. Por último el paciente pasará por reges para programar su próxima cita según indicación médica.
+
+Descripción de roles de los participantes en el proyecto:
+Luego de obtener los datos del programa se procederá de la siguiente manera:
+
+1. MÉDICOS DEL EQUIPO PEC:
+Se realizarán las llamadas para explicarle al paciente en que consiste el programa de enfermedades crónicas y de aceptar participar, se le agendará una cita.
+El personal médico se encargará de llenar las solicitudes de laboratorio de los pacientes agendados y proporcionarle al laboratorio la lista semanal de los pacientes agendados junto con las solicitudes de laboratorio firmadas y selladas.
+Recibirán llamadas de otros médicos que realicen atención en los diversos programas de PEC a nivel nacional.
+
+2. ATENCIÓN AL ASEGURADO:
+Se encargarán de identificar al paciente del PEC y orientarlo a los diferentes departamentos mencionados en el flujograma.
+
+3. REGES:
+El personal de registros médicos se encargará de agendar las citas de los pacientes según corresponda su control con el médico.
+
+4. LABORATORIO:
+Se tomará la muestra al paciente y se procesará el mismo día de la cita para su control con el médico asignado. Los laboratorios solicitados en cada consulta serán un hemograma completo, creatinina, ácido úrico, nitrógeno de urea, hemoglobina glicosilada, glicemia en ayunas y albuminuria.
+
+5. ENFERMERIA:
+El personal de enfermería desempeña un papel importante en la identificación temprana de signos de alerta de la condición del paciente con su enfermedad y con su tratamiento. Por tanto el rol de enfermería es fundamental en la educación del paciente y sus familiares para mejor la adherencia al tratamiento y evitar de esta manera futura complicaciones de las enfermedades crónicas.
+
+Funciones a desempeñar:
+ Educar al paciente para garantizar el éxito en su tratamiento.
+ Afianzar un régimen en la terapia de medicamentos que fomente la estabilidad del paciente y la adherencia al mismo.
+ Promover un estilo de vida saludable manteniendo un equilibrio entre el consumo de alimentos, actividad física, toma de medicamentos y abandono del tabaco y alcohol.
+ Familiarizar al paciente con el monitoreo de la presión arterial, la toma de glicemia capilar y el uso de insulina cuando lo requiera.
+ Incentivar la comunicación entre el paciente y el personal de salud.
+ Trabajo en equipo con otros profesionales de la salud para gestionar casos más complejos y coordinar la atención del paciente, entre esta atención médica, nutrición, trabajo social y salud mental.
+
+Intervenciones:
+ Revisión de antecedentes patológicos personales del paciente y profundizar en la patología crónica que se mantiene activa.
+ Recoger y organizar información sobre conocimientos, actitudes y comportamientos relativos a la enfermedad.
+
+Evaluación física:
+ Medición de perímetro abdominal, peso, talla, IMC
+ Medición de la presión arterial y FC
+ De ser diabético revisión y exploración de los pies y evaluación delas zonas de punción si utiliza tratamiento con insulina.
+ Búsqueda de signos y síntomas de hiperglicemia e hipertensión prolongada.
+ Factores físicos y emocionales que puedan afectar la capacidad del paciente para realizar o aprender las actividades relacionadas con el cuidado de su enfermedad.
+ Revisión de exámenes de laboratorios.
+ Educación del paciente y su familia sobre la enfermedad y su tratamiento, incluyendo la importancia de seguir las instrucciones del médico y el uso adecuado de los medicamentos.
+ Seguimiento y control del paciente.
+ Revisión de tarjeta de vacunación.
+
+Observar y documentar
+ Respuesta del paciente a las intervenciones, enseñanzas y plan de acción realizado.
+ Logro o progreso hacia el resultado que se espera.
+ Hallazgos.
+ Efectos del comportamiento en el estado de salud.
+
+6. ENFERMERIA EN SALUD MENTAL:
+La enfermería en la salud mental desempeña un papel importante para afrontar las necesidades de los ciudadanos en relación a la salud mental y de su entorno familiar, ante todo, en el manejo de pacientes con enfermedades crónicas. Dentro de los objetivos tenemos:
+ Fortalecer la salud mental de los pacientes con enfermedades crónicas y de sus familiares mediante la expresión de las emociones y a través de la educación.
+ Identificar problemas relacionados a la salud mental de los pacientes con enfermedades crónicas
+ Realizar evaluaciones de salud mental, ofrecer apoyo y coordinar con los diferentes servicios de salud (Psiquiatría o Psicología) que requiera la atención.
+
+7. TRABAJO SOCIAL:
+Parte de la problemática que rodea al paciente con enfermedades crónicas son las necesidades sociales que afectan el proceso salud enfermedad. Es por ello, que la participación del trabajador social cumple un rol indispensable en la prevención del avance y de las complicaciones de dichas enfermedades.
+ Realizar una evaluación social del paciente y de su entorno familiar.
+ Conocer dinámica y roles dentro del sistema para el afrontamiento de la enfermedad.
+ Evaluar el cumplimiento de los controles de salud y adherencia a tratamiento del paciente.
+ Participar en conjunto con el grupo multidisciplinario en la realización de actividades de prevención, promoción de la salud y de atención de las comorbilidades de los pacientes.
+ Intervenir en el proceso de educación del paciente y de sus familiares ante la situación actual del paciente y de nuevos posibles diagnósticos.
+ Identificar los factores y situaciones de riesgo social en relación con la salud, tanto en individuos como en familias y en sus comunidades.
+ Realizar el estudio y elaborar el plan de intervención social que complete la atención integral del individuo en su proceso de salud-enfermedad.
+ Fomentar la participación de profesionales de la salud en actividades comunitarias dirigidas a la población para crear entornos más saludables.
+ Facilitar la comunicación y coordinación con el Sistema de Servicios Sociales, así como otros que garanticen una atención integral.
+ Fomentar la promoción y prevención de la salud, teniendo en cuenta a aquellos colectivos más vulnerables, por causa de enfermedad o exclusión social.
+ Registrar el proceso de atención a los usuarios para emitir, cuando sea preciso, el correspondiente informe social.
+ Asesorar a la persona enferma, la familia ofreciendo orientación, apoyo psicosocial, tanto en la integración como en la gestión de prestaciones económicas o servicios que brinda la Caja del Seguro Social, cuando el paciente es laboralmente activo.
+
+8. MEDICO DE ATENCIÓN:
+Uno de los objetivos principales de este programa es una excelente calidad en la relación médico paciente y que el personal de salud se sensibilice aún más con las enfermedades de los pacientes y forme parte activamente, en la disminución de las complicaciones de las enfermedades crónicas que verá en cada consulta:
+ Proporcionar acceso fácil a la atención integral y continua a todo individuo que solicite la atención reduciendo un menor uso de los servicios de especialistas y de los cuartos de urgencias y a su vez obtener un menor porcentaje de costos en salud.
+ Identificar y resolver de manera más puntual los problemas de salud de los pacientes que acuden por atención mejorando la continuidad asistencial para realizar una labor de prevención.
+ Atender al individuo en el contexto de la familia y a la familia en el contexto de la comunidad de la que forma parte, logrando obtener mayor información que permita una atención de calidad.
+ Proporcionar la coordinación de los diferentes especialistas y tratamientos de apoyo en función de las necesidades del paciente.
+
+9. NUTRICION: 
+Como parte de la prevención en la evolución a complicaciones de las enfermedades crónicas, el asesoramiento nutricional debe ser la primera recomendación al paciente. Por tanto, a participacion del personal de nutrición es un pilar fundamental en la calidad de atención de estos pacientes. Dentro de las funciones que realizará el nutricionista podemos recalcar:  Conocer el estado nutricional general de los pacientes  Elaborar informes y planes de nutrición adecuados a cada paciente  Planificar y desarrollar actividades con las que mejorar la nutrición y salud alimentaria de cada paciente  Elaborar valoraciones nutricionales  Realizar seguimientos dietéticos y nutricionales de pacientes  Desarrollar protocolos de intervención alimentaria para grupos específicos

@@ -26,6 +26,7 @@ import {
   People,
   Assessment,
   Notifications,
+  Healing,
 } from '@mui/icons-material';
 import { useNavigate, useLocation } from 'react-router-dom';
 import BieniMedicoLogo from '../Logo/BieniMedicoLogo';
@@ -40,6 +41,7 @@ interface LayoutProps {
 const menuItems = [
   { text: 'Dashboard', icon: <Dashboard />, path: '/dashboard' },
   { text: 'Flujos y Costos', icon: <Timeline />, path: '/patient-flow' },
+  { text: 'CNEC', icon: <Healing />, path: '/pec' },
   { text: 'Configuración', icon: <Settings />, path: '/configuration' },
   { text: 'Analítica', icon: <Analytics />, path: '/analytics' },
   { text: 'Visualización', icon: <Timeline />, path: '/visualization' },

@@ -249,6 +249,30 @@ class MedicalFlowService {
   }
 
   /**
+   * Actualizar un flujo médico
+   */
+  async updateFlow(flowId: string, flowData: {
+    name?: string;
+    description?: string;
+    nodes?: Array<{
+      id: string;
+      position?: { x: number; y: number };
+      [key: string]: any;
+    }>;
+    edges?: Array<any>;
+    averageDuration?: number;
+    estimatedCost?: number;
+  }): Promise<Flow | null> {
+    try {
+      const response = await axios.put(`${this.baseURL}/flows/${flowId}`, flowData);
+      return response.data.data || null;
+    } catch (error) {
+      console.error(`Error actualizando flujo ${flowId}:`, error);
+      throw error;
+    }
+  }
+
+  /**
    * Formatear duración en minutos a texto legible
    */
   formatDuration(minutes: number): string {

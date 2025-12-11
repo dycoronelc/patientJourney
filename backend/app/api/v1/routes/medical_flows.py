@@ -3,9 +3,9 @@ Rutas API para flujos médicos normalizados
 Proporciona endpoints para acceder a los 20 flujos médicos completos
 """
 
-from fastapi import APIRouter, Depends, HTTPException, Query
+from fastapi import APIRouter, Depends, HTTPException, Query, Body
 from sqlalchemy.orm import Session
-from typing import List, Optional
+from typing import List, Optional, Dict, Any
 from app.core.database import get_db
 from app.services.medical_flow_service import MedicalFlowService
 import structlog
@@ -67,12 +67,21 @@ async def get_flows(
             flows = service.search_flows(search)
         elif specialty_id:
             flows = service.get_flows_by_specialty(specialty_id)
-        elif min_duration is not None and max_duration is not None:
-            flows = service.get_flows_by_duration_range(min_duration, max_duration)
-        elif min_cost is not None and max_cost is not None:
-            flows = service.get_flows_by_cost_range(min_cost, max_cost)
         else:
+            # Obtener todos los flujos y filtrar por duración y costo si es necesario
             flows = service.get_all_flows()
+            
+            # Filtrar por rango de duración si se proporciona
+            if min_duration is not None:
+                flows = [f for f in flows if f.get("averageDuration", 0) >= min_duration]
+            if max_duration is not None:
+                flows = [f for f in flows if f.get("averageDuration", 0) <= max_duration]
+            
+            # Filtrar por rango de costo si se proporciona
+            if min_cost is not None:
+                flows = [f for f in flows if f.get("estimatedCost", 0) >= min_cost]
+            if max_cost is not None:
+                flows = [f for f in flows if f.get("estimatedCost", 0) <= max_cost]
         
         return {
             "success": True,
@@ -226,5 +235,29 @@ async def get_flow_edges(flow_id: str, db: Session = Depends(get_db)):
         raise
     except Exception as e:
         logger.error(f"Error obteniendo conexiones del flujo {flow_id}: {e}")
+        raise HTTPException(status_code=500, detail="Error interno del servidor")
+
+@router.put("/flows/{flow_id}", summary="Actualizar flujo médico")
+async def update_flow(
+    flow_id: str,
+    flow_data: Dict[str, Any] = Body(...),
+    db: Session = Depends(get_db)
+):
+    """Actualizar un flujo médico, incluyendo posiciones de nodos"""
+    try:
+        service = MedicalFlowService(db)
+        result = service.update_flow(flow_id, flow_data)
+        
+        if not result:
+            raise HTTPException(status_code=404, detail="Flujo no encontrado")
+        
+        return {
+            "success": True,
+            "data": result
+        }
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Error actualizando flujo {flow_id}: {e}")
         raise HTTPException(status_code=500, detail="Error interno del servidor")
 
